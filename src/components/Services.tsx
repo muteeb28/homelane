@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
 
-type GallerySection = 'kitchen' | 'living-room' | 'bedroom' | 'wardrobe' | 'home-office' | 'bathroom';
+type GallerySection = 'kitchen' | 'living-room' | 'bedroom' | 'wardrobe' | 'home-office' | 'bathroom' | 'space-saving' | 'home-interiors';
 
 interface CarouselItem {
   id: string;
@@ -81,9 +81,9 @@ const HorizontalCarousel: React.FC<{ section: CarouselSection }> = ({ section })
           onClick={() => {
             if (section.targetSection) {
               console.log('Dispatching navigate event for:', section.targetSection);
-              const event = new CustomEvent('navigate', { 
+              const event = new CustomEvent('navigate', {
                 detail: { view: 'design-gallery', section: section.targetSection },
-                bubbles: true 
+                bubbles: true
               });
               window.dispatchEvent(event);
             }
@@ -100,10 +100,10 @@ const HorizontalCarousel: React.FC<{ section: CarouselSection }> = ({ section })
             <div key={item.id} className="snap-start shrink-0 w-[320px]">
               <div className="rounded-2xl overflow-hidden border border-gray-100 shadow-sm hover:shadow-xl transition-all duration-300 group bg-white cursor-pointer">
                 <div className="relative">
-                  <img 
-                    src={item.image} 
-                    alt={item.title} 
-                    className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-300" 
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-[200px] object-cover group-hover:scale-105 transition-transform duration-300"
                     loading="lazy"
                     onError={(e) => {
                       const target = e.target as HTMLImageElement;

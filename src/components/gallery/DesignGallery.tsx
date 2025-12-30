@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import BedroomGallery from './BedroomGallery';
 import ModularKitchenGallery from './ModularKitchenGallery';
 import LivingRoomGallery from './LivingRoomGallery';
@@ -76,7 +76,7 @@ const DesignGallery: React.FC<DesignGalleryProps> = ({ activeSection, onSectionC
         <div className="container mx-auto px-4 text-center">
           <h1 className="text-5xl font-bold mb-6">Design Gallery</h1>
           <p className="text-xl opacity-90 max-w-2xl mx-auto">
-            Explore our stunning collection of interior designs across different rooms and spaces. 
+            Explore our stunning collection of interior designs across different rooms and spaces.
             Get inspired and find the perfect style for your home.
           </p>
         </div>
@@ -90,11 +90,10 @@ const DesignGallery: React.FC<DesignGalleryProps> = ({ activeSection, onSectionC
               <button
                 key={tab.id}
                 onClick={() => onSectionChange(tab.id as GallerySection)}
-                className={`flex items-center space-x-2 px-6 py-3 rounded-full whitespace-nowrap mr-4 transition-all duration-200 ${
-                  activeSection === tab.id
+                className={`flex items-center space-x-2 px-6 py-3 rounded-full whitespace-nowrap mr-4 transition-all duration-200 ${activeSection === tab.id
                     ? 'bg-primary-600 text-white shadow-lg'
                     : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
+                  }`}
               >
                 <span className="text-lg">{tab.icon}</span>
                 <span className="font-medium">{tab.label}</span>
